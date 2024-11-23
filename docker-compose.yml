@@ -1,0 +1,23 @@
+version: '3.9'
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      DB_HOST=db
+      DB_PORT=5432
+      DB_USERNAME=user
+      DB_PASSWORD=password
+      DB_NAME=blockchain
+      SMTP_HOST=smtp.example.com
+      SMTP_PORT=587
+      SMTP_USER=your-email@example.com
+      SMTP_PASS=your-password
+      SMTP_FROM=no-reply@example.com
+  db:
+    image: postgres:14
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: blockchain
